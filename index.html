@@ -316,6 +316,53 @@ fbq('track', 'PageView');
   .serv-card:nth-child(3n+1){border-top-left-radius:120px}
   .serv-card:nth-child(3n+2){border-top-right-radius:120px}
   .serv-card:nth-child(3n+3){border-bottom-right-radius:120px}
+
+  /* Imagen de fondo decorativa para tarjetas con foto */
+  .serv-card.has-bg::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    background-image: var(--card-bg);
+    background-size: cover;
+    background-position: var(--card-bg-pos, center);
+    opacity: .85;
+    z-index: 0;
+    pointer-events: none;
+    transition: opacity .5s var(--t), transform .8s var(--t);
+  }
+  .serv-card.has-bg::after{
+    /* Velo suave solo en la parte inferior para que el precio + botón sean legibles */
+    content:"";
+    position:absolute;
+    inset:0;
+    background: linear-gradient(180deg,
+      rgba(20,16,12,0) 0%,
+      rgba(20,16,12,.15) 45%,
+      rgba(20,16,12,.72) 100%);
+    z-index: 1;
+    pointer-events: none;
+  }
+  .serv-card.has-bg > *{ position: relative; z-index: 2; }
+  .serv-card.has-bg:hover::before{ opacity: 1; transform: scale(1.04); }
+
+  /* Texto en blanco sobre la foto */
+  .serv-card.has-bg h3,
+  .serv-card.has-bg p,
+  .serv-card.has-bg .serv-precio,
+  .serv-card.has-bg .serv-tiempo,
+  .serv-card.has-bg .serv-link{
+    color:#fff;
+    text-shadow: 0 2px 14px rgba(0,0,0,.45);
+  }
+  .serv-card.has-bg p{ color: rgba(255,255,255,.92) }
+  .serv-card.has-bg .serv-tiempo{ color: rgba(255,255,255,.78) }
+  .serv-card.has-bg .serv-foot{ border-top-color: rgba(255,255,255,.25) }
+  .serv-card.has-bg .serv-icon{
+    background: rgba(255,255,255,.18);
+    backdrop-filter: blur(6px);
+    color:#fff;
+    border:1px solid rgba(255,255,255,.3);
+  }
   .serv-icon{
     width:56px;height:56px;border-radius:50%;
     background:var(--crema-2);
@@ -473,14 +520,16 @@ fbq('track', 'PageView');
     font-weight:300;margin-bottom:18px;letter-spacing:-.01em;
   }
   .foot-tag{font-size:14px;opacity:.7;line-height:1.6;max-width:300px;margin-bottom:24px}
-  .foot-soc{display:flex;gap:12px}
+  .foot-soc{display:flex;align-items:center;gap:18px}
   .foot-soc a{
-    width:40px;height:40px;border-radius:50%;
-    border:1px solid rgba(245,239,228,.2);
-    display:flex;align-items:center;justify-content:center;
-    transition:all .3s var(--t);
+    display:inline-flex;align-items:center;justify-content:center;
+    background:transparent;border:0;padding:0;
+    transition:transform .3s var(--t), filter .3s var(--t);
   }
-  .foot-soc a:hover{background:var(--terracota);border-color:var(--terracota);transform:translateY(-2px)}
+  .foot-soc a svg{width:26px;height:26px;display:block}
+  .foot-soc a:hover{transform:translateY(-3px) scale(1.08);filter:drop-shadow(0 6px 14px rgba(0,0,0,.35))}
+  .foot-soc a.s-whatsapp svg{color:#25D366;fill:#25D366}
+  .foot-soc a.s-facebook svg{color:#1877F2;fill:#1877F2}
   .foot-col h4{font-size:13px;text-transform:uppercase;letter-spacing:.18em;font-weight:600;margin-bottom:20px;color:var(--terracota)}
   .foot-col ul{list-style:none}
   .foot-col li{margin-bottom:10px}
@@ -814,12 +863,12 @@ fbq('track', 'PageView');
 
     <div class="serv-grid reveal-stagger">
 
-      <div class="serv-card">
+      <div class="serv-card has-bg" style="--card-bg: url('img/wellness-deportivo.jpeg'); --card-bg-pos: center 60%">
         <div class="serv-icon">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2v20M5 8c0 4 3 7 7 7s7-3 7-7M5 8c2 0 4 1 5 3M19 8c-2 0-4 1-5 3"/></svg>
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 4l4 4M14 4l-4 4M4 6l4 4M4 14l4-4M16 20l4-4M14 20l4-4M20 18l-4-4M20 14l-4-4"/><circle cx="12" cy="12" r="2"/></svg>
         </div>
-        <h3>Masaje Holístico</h3>
-        <p>Técnica integradora que combina presión profunda, aceites botánicos y respiración guiada para liberar tensión acumulada.</p>
+        <h3>Wellness Deportivo</h3>
+        <p>Maniobras profundas y descontracturantes para deportistas y cuerpos exigidos. Libera ácido láctico, mejora movilidad y acelera la recuperación muscular.</p>
         <div class="serv-foot">
           <div>
             <div class="serv-precio">$120.000</div>
@@ -829,76 +878,76 @@ fbq('track', 'PageView');
         </div>
       </div>
 
-      <div class="serv-card">
+      <div class="serv-card has-bg" style="--card-bg: url('img/wellness-terapeutico.jpeg'); --card-bg-pos: center 30%">
         <div class="serv-icon">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="3"/><path d="M12 2v4M12 18v4M2 12h4M18 12h4M5 5l3 3M16 16l3 3M5 19l3-3M16 8l3-3"/></svg>
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2v20M5 8c0 4 3 7 7 7s7-3 7-7M5 8c2 0 4 1 5 3M19 8c-2 0-4 1-5 3"/></svg>
         </div>
-        <h3>Ritual de Piedras Calientes</h3>
-        <p>Piedras volcánicas tibias que penetran capas profundas del músculo. Ideal para desestresar la espalda y liberar nudos.</p>
+        <h3>Wellness Terapéutico</h3>
+        <p>Sesión enfocada en zonas con dolor crónico, contracturas y posturas tensionadas. Combinamos presión profunda, estiramientos y aceites botánicos para devolverte el rango de movimiento.</p>
         <div class="serv-foot">
           <div>
-            <div class="serv-precio">$150.000</div>
-            <div class="serv-tiempo">75 min</div>
+            <div class="serv-precio">$120.000</div>
+            <div class="serv-tiempo">60 min</div>
           </div>
           <a href="#reserva" class="serv-link">Reservar →</a>
         </div>
       </div>
 
-      <div class="serv-card">
-        <div class="serv-icon">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg>
-        </div>
-        <h3>Sound Healing</h3>
-        <p>Vibraciones de cuencos tibetanos y de cuarzo que reorganizan tu sistema nervioso. Sales sintiendo que descansaste 8 horas.</p>
-        <div class="serv-foot">
-          <div>
-            <div class="serv-precio">$110.000</div>
-            <div class="serv-tiempo">50 min</div>
-          </div>
-          <a href="#reserva" class="serv-link">Reservar →</a>
-        </div>
-      </div>
-
-      <div class="serv-card">
+      <div class="serv-card has-bg" style="--card-bg: url('img/wellness-relajante.jpeg'); --card-bg-pos: center 35%">
         <div class="serv-icon">
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2c-3 4-3 8 0 12 3-4 3-8 0-12zM6 14c2 1 3 3 3 6M18 14c-2 1-3 3-3 6"/></svg>
         </div>
-        <h3>Aromaterapia Botánica</h3>
-        <p>Mezcla personalizada de aceites esenciales puros aplicada en puntos energéticos. Para estrés crónico, insomnio y ansiedad.</p>
+        <h3>Wellness Relajante</h3>
+        <p>Maniobras suaves y envolventes con aromaterapia para soltar el estrés acumulado. Pensado para descansar la mente y reconciliarte con tu cuerpo.</p>
         <div class="serv-foot">
           <div>
-            <div class="serv-precio">$95.000</div>
-            <div class="serv-tiempo">45 min</div>
+            <div class="serv-precio">$120.000</div>
+            <div class="serv-tiempo">60 min</div>
           </div>
           <a href="#reserva" class="serv-link">Reservar →</a>
         </div>
       </div>
 
-      <div class="serv-card">
+      <div class="serv-card has-bg" style="--card-bg: url('img/quiromasaje.jpeg'); --card-bg-pos: center 60%">
         <div class="serv-icon">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 12c4-2 8-2 12 0s5 4 6 8M3 12c2-1 4-1 6 0M9 12c1-1 2-1 3 0"/></svg>
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M8 3c0 4 8 4 8 0M9 7c-2 2-3 5-3 9a3 3 0 0 0 6 0M15 7c2 2 3 5 3 9a3 3 0 0 1-6 0"/></svg>
         </div>
-        <h3>Reflexología</h3>
-        <p>Tu cuerpo entero refleja en tus pies. Liberamos órganos, glándulas y emociones a través de puntos específicos.</p>
+        <h3>Quiromasaje</h3>
+        <p>Técnica manual especializada que trata músculos, articulaciones y tejidos profundos. Ideal para lesiones, dolor lumbar/cervical y recuperación postural.</p>
         <div class="serv-foot">
           <div>
-            <div class="serv-precio">$85.000</div>
-            <div class="serv-tiempo">45 min</div>
+            <div class="serv-precio">$130.000</div>
+            <div class="serv-tiempo">60 min</div>
           </div>
           <a href="#reserva" class="serv-link">Reservar →</a>
         </div>
       </div>
 
-      <div class="serv-card">
+      <div class="serv-card has-bg" style="--card-bg: url('img/wellness-kids.jpeg'); --card-bg-pos: center 30%">
         <div class="serv-icon">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M16 8a4 4 0 0 1-8 0M9 14c-2 1-3 3-3 6M15 14c2 1 3 3 3 6M12 14v8"/><circle cx="12" cy="6" r="3"/></svg>
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="8" r="3"/><path d="M6 20c0-3 3-5 6-5s6 2 6 5M9 13c-1 1-2 2-2 4M15 13c1 1 2 2 2 4"/></svg>
         </div>
-        <h3>Ritual de Pareja</h3>
-        <p>Dos camillas, una sola experiencia. Masaje sincronizado con aceites de cacao y vainilla. Perfecto para reconectar.</p>
+        <h3>Wellness Kids</h3>
+        <p>Sesión adaptada para niños y niñas con maniobras suaves y seguras. Calma, alivia tensión escolar y los conecta con su cuerpo de forma lúdica y respetuosa.</p>
         <div class="serv-foot">
           <div>
-            <div class="serv-precio">$280.000</div>
-            <div class="serv-tiempo">90 min</div>
+            <div class="serv-precio">$70.000</div>
+            <div class="serv-tiempo">30 min</div>
+          </div>
+          <a href="#reserva" class="serv-link">Reservar →</a>
+        </div>
+      </div>
+
+      <div class="serv-card has-bg" style="--card-bg: url('img/friends-wellness.jpeg'); --card-bg-pos: center 40%">
+        <div class="serv-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="8" cy="8" r="3"/><circle cx="16" cy="8" r="3"/><path d="M2 20c0-3 3-5 6-5s6 2 6 5M10 20c0-3 3-5 6-5s6 2 6 5"/></svg>
+        </div>
+        <h3>Friends Wellness</h3>
+        <p>Vivan el ritual juntas. Sesión grupal pensada para amigas o parejas: dos o más camillas en simultáneo, ambiente compartido y rituales sincronizados. Cotiza con nosotros.</p>
+        <div class="serv-foot">
+          <div>
+            <div class="serv-precio">Cotizar</div>
+            <div class="serv-tiempo">a tu medida</div>
           </div>
           <a href="#reserva" class="serv-link">Reservar →</a>
         </div>
@@ -1095,14 +1144,24 @@ fbq('track', 'PageView');
         <div class="foot-logo">anamaya</div>
         <p class="foot-tag">Santuario de bienestar holístico. Terapias ancestrales con productos 100% naturales para devolverte tu calma.</p>
         <div class="foot-soc">
-          <a href="https://www.instagram.com/anamayawellness/" target="_blank" rel="noopener" aria-label="Instagram">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg>
+          <a class="s-instagram" href="https://www.instagram.com/anamayawellness/" target="_blank" rel="noopener" aria-label="Instagram">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <defs>
+                <linearGradient id="igAnamayaGrad" x1="0%" y1="100%" x2="100%" y2="0%">
+                  <stop offset="0%" stop-color="#FED576"/>
+                  <stop offset="26%" stop-color="#F47133"/>
+                  <stop offset="61%" stop-color="#BC3081"/>
+                  <stop offset="100%" stop-color="#4C63D2"/>
+                </linearGradient>
+              </defs>
+              <path fill="url(#igAnamayaGrad)" d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/>
+            </svg>
           </a>
-          <a href="#" aria-label="Facebook">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+          <a class="s-facebook" href="#" aria-label="Facebook">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
           </a>
-          <a href="#" aria-label="WhatsApp">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.37 1.9.72 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.35 1.85.59 2.81.72A2 2 0 0 1 22 16.92z"/></svg>
+          <a class="s-whatsapp" href="https://wa.me/573155514708" target="_blank" rel="noopener" aria-label="WhatsApp">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
           </a>
         </div>
       </div>
@@ -1160,7 +1219,7 @@ fbq('track', 'PageView');
 
 <!-- WhatsApp flotante -->
 <a href="https://wa.me/573155514708?text=Hola%20Anamaya,%20quiero%20información" class="wa-float" target="_blank" rel="noopener" aria-label="WhatsApp">
-  <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor"><path d="M17.6 6.3A8 8 0 0 0 4.5 16l-1.1 4 4-1.1a8 8 0 0 0 11.5-3.4 8 8 0 0 0-1.3-9.2zm-5.5 12.3a6.7 6.7 0 0 1-3.4-.9l-.2-.1-2.4.6.6-2.3-.2-.3a6.7 6.7 0 1 1 5.6 3zm3.6-5c-.2-.1-1.2-.6-1.4-.6-.2-.1-.3-.1-.4.1-.1.2-.5.6-.6.7-.1.1-.2.1-.4 0a5.4 5.4 0 0 1-2.7-2.4c-.2-.4.2-.3.6-1.1.1-.1 0-.2 0-.3 0-.1-.4-1-.6-1.4-.2-.4-.3-.3-.4-.3h-.4c-.1 0-.3 0-.5.2a1.7 1.7 0 0 0-.5 1.2 3 3 0 0 0 .6 1.6 6.6 6.6 0 0 0 2.7 2.4c1.7.7 1.7.5 2 .5.3 0 1-.4 1.1-.8.1-.4.1-.7.1-.8 0-.1-.1-.1-.3-.2z"/></svg>
+  <svg width="30" height="30" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
 </a>
 
 
