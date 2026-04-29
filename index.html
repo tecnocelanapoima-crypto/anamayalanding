@@ -1,0 +1,1389 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content="Anamaya Wellness — Santuario de bienestar. Masajes, aromaterapia, sound healing y rituales holísticos para reconectar cuerpo, mente y espíritu." />
+<title>Anamaya Wellness — Reconecta con tu esencia</title>
+
+<!-- ============================================================ -->
+<!-- 🎯 META PIXEL — Reemplaza 801336406379208 por tu ID de 16 dígitos -->
+<!-- ============================================================ -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+
+// 👇 PEGA AQUÍ TU PIXEL ID (16 dígitos)
+fbq('init', '801336406379208');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=801336406379208&ev=PageView&noscript=1"/></noscript>
+<!-- ============================================================ -->
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Manrope:wght@300..800&display=swap" rel="stylesheet">
+
+<style>
+  /* ===== TOKENS ===== */
+  :root{
+    --crema: #f5efe4;
+    --crema-2: #ebe2d1;
+    --hueso: #faf6ec;
+    --salvia: #8a9d83;
+    --salvia-oscuro: #5d7059;
+    --terracota: #c47a5a;
+    --terracota-oscuro: #a45c3f;
+    --tinta: #2c2620;
+    --tinta-suave: #524940;
+    --linea: rgba(44,38,32,.18);
+    --max: 1320px;
+    --t: cubic-bezier(.2,.7,.2,1);
+  }
+
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:'Manrope',sans-serif;
+    color:var(--tinta);
+    background:var(--crema);
+    line-height:1.55;
+    font-weight:400;
+    overflow-x:hidden;
+    -webkit-font-smoothing:antialiased;
+  }
+
+  /* Textura de grano sutil — el "alma orgánica" de la página */
+  body::before{
+    content:"";
+    position:fixed;inset:0;
+    background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/></filter><rect width='100%25' height='100%25' filter='url(%23n)' opacity='0.35'/></svg>");
+    opacity:.18;mix-blend-mode:multiply;pointer-events:none;z-index:1000;
+  }
+
+  img{max-width:100%;display:block}
+  a{color:inherit;text-decoration:none}
+  button{font-family:inherit;cursor:pointer;border:none;background:none;color:inherit}
+
+  .wrap{max-width:var(--max);margin:0 auto;padding:0 28px}
+  .display{font-family:'Fraunces',serif;font-weight:300;line-height:.95;letter-spacing:-.02em}
+  .display em{font-style:italic;font-weight:300;font-variation-settings:"opsz" 144;color:var(--terracota-oscuro)}
+  .eyebrow{
+    font-size:11px;text-transform:uppercase;letter-spacing:.28em;
+    font-weight:600;color:var(--salvia-oscuro);
+    display:inline-flex;align-items:center;gap:10px;
+  }
+  .eyebrow::before{content:"";width:24px;height:1px;background:var(--salvia-oscuro)}
+
+  /* ===== NAV ===== */
+  .nav{
+    position:fixed;top:0;left:0;right:0;z-index:100;
+    padding:20px 0;
+    transition:background .4s var(--t),padding .4s var(--t);
+  }
+  .nav .logo,
+  .nav .nav-links a{color:var(--hueso);transition:color .4s var(--t)}
+  .nav.scrolled .logo,
+  .nav.scrolled .nav-links a{color:var(--tinta)}
+  .nav.scrolled{
+    background:rgba(245,239,228,.85);
+    backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
+    padding:14px 0;
+    border-bottom:1px solid var(--linea);
+  }
+  .nav-inner{display:flex;align-items:center;justify-content:space-between;gap:24px}
+  .logo{
+    font-family:'Fraunces',serif;font-style:italic;font-weight:400;
+    font-size:24px;letter-spacing:-.01em;
+    display:flex;align-items:center;gap:10px;
+  }
+  .logo svg{width:26px;height:26px}
+  .nav-links{display:flex;gap:36px;align-items:center}
+  .nav-links a{font-size:14px;font-weight:500;position:relative;padding:6px 0}
+  .nav-links a::after{
+    content:"";position:absolute;bottom:0;left:0;
+    width:0;height:1px;background:var(--terracota);
+    transition:width .3s var(--t);
+  }
+  .nav-links a:hover::after{width:100%}
+  .btn-nav{
+    background:var(--tinta);color:var(--crema);
+    padding:12px 22px;border-radius:999px;
+    font-size:13px;font-weight:600;letter-spacing:.02em;
+    transition:transform .3s var(--t),background .3s var(--t);
+  }
+  .btn-nav:hover{background:var(--terracota-oscuro);transform:translateY(-1px)}
+  .menu-toggle{display:none;width:32px;height:32px;flex-direction:column;justify-content:center;gap:5px}
+  .menu-toggle span{display:block;height:1.5px;background:var(--tinta);transition:.3s var(--t)}
+
+  /* ===== HERO CON VIDEO ===== */
+  .hero{
+    position:relative;
+    min-height:100vh;
+    height:100vh;
+    display:flex;align-items:center;
+    overflow:hidden;
+    color:var(--hueso);
+  }
+  .hero-videos{
+    position:absolute;inset:0;
+    z-index:0;
+    background:var(--tinta);
+  }
+  .hero-videos video{
+    position:absolute;inset:0;
+    width:100%;height:100%;
+    object-fit:cover;
+    opacity:0;
+    transition:opacity 1.6s ease-in-out;
+  }
+  .hero-videos video.active{opacity:1}
+
+  /* Velo tierra para que el texto siempre se lea */
+  .hero-overlay{
+    position:absolute;inset:0;z-index:1;
+    background:
+      linear-gradient(180deg, rgba(44,38,32,.55) 0%, rgba(44,38,32,.25) 40%, rgba(44,38,32,.7) 100%),
+      linear-gradient(120deg, rgba(93,112,89,.3) 0%, rgba(196,122,90,.2) 100%);
+  }
+
+  .hero .wrap{position:relative;z-index:2;width:100%}
+  .hero-grid{
+    display:grid;
+    grid-template-columns:1fr;
+    max-width:900px;
+    padding-top:60px;
+  }
+  .hero h1{
+    font-size:clamp(54px,8.5vw,140px);
+    margin-bottom:32px;
+    color:var(--hueso);
+    text-shadow:0 4px 30px rgba(0,0,0,.25);
+  }
+  .hero h1 span{display:block}
+  .hero h1 em{color:#e8c5a8}
+  .hero .eyebrow{color:#e8c5a8}
+  .hero .eyebrow::before{background:#e8c5a8}
+  .hero-sub{
+    font-size:18px;color:rgba(245,239,228,.92);
+    max-width:520px;margin-bottom:44px;
+    line-height:1.65;
+    text-shadow:0 2px 20px rgba(0,0,0,.3);
+  }
+  .hero-cta{display:flex;gap:16px;flex-wrap:wrap;align-items:center}
+  .btn{
+    display:inline-flex;align-items:center;gap:12px;
+    padding:18px 32px;border-radius:999px;
+    font-size:14px;font-weight:600;letter-spacing:.02em;
+    transition:all .35s var(--t);
+  }
+  .btn-primary{background:var(--terracota);color:var(--hueso)}
+  .btn-primary:hover{background:var(--terracota-oscuro);transform:translateY(-2px);box-shadow:0 12px 30px -10px rgba(196,122,90,.5)}
+  .btn-ghost{color:var(--hueso);border:1px solid rgba(245,239,228,.4);backdrop-filter:blur(6px);background:rgba(245,239,228,.08)}
+  .btn-ghost:hover{border-color:var(--hueso);background:var(--hueso);color:var(--tinta)}
+  .btn .arrow{transition:transform .35s var(--t)}
+  .btn:hover .arrow{transform:translateX(4px)}
+
+  /* Indicadores del slider de videos */
+  .hero-dots{
+    position:absolute;bottom:40px;right:40px;z-index:3;
+    display:flex;gap:10px;align-items:center;
+  }
+  .hero-dots button{
+    width:30px;height:2px;background:rgba(245,239,228,.35);
+    border-radius:2px;transition:all .4s var(--t);cursor:pointer;
+    border:none;padding:0;
+  }
+  .hero-dots button.active{background:var(--hueso);width:50px}
+
+  /* Badge de rating sobre el video */
+  .hero-badge{
+    position:absolute;bottom:40px;left:40px;z-index:3;
+    background:rgba(250,246,236,.95);
+    color:var(--tinta);
+    padding:16px 22px;border-radius:18px;
+    backdrop-filter:blur(10px);
+    box-shadow:0 20px 40px -15px rgba(0,0,0,.3);
+    display:flex;align-items:center;gap:14px;
+  }
+  .hero-badge .stars{color:var(--terracota);font-size:14px;letter-spacing:1px}
+  .hero-badge .num{font-family:'Fraunces',serif;font-size:24px;font-weight:300;line-height:1}
+  .hero-badge .lbl{font-size:10px;color:var(--tinta-suave);text-transform:uppercase;letter-spacing:.15em;margin-top:3px}
+
+  /* Indicador scroll abajo */
+  .hero-scroll{
+    position:absolute;bottom:40px;left:50%;transform:translateX(-50%);
+    z-index:3;display:flex;flex-direction:column;align-items:center;gap:10px;
+    color:var(--hueso);font-size:10px;letter-spacing:.25em;text-transform:uppercase;
+    opacity:.7;
+  }
+  .hero-scroll-line{
+    width:1px;height:36px;background:var(--hueso);position:relative;overflow:hidden;
+  }
+  .hero-scroll-line::after{
+    content:"";position:absolute;top:-100%;left:0;width:100%;height:100%;
+    background:var(--terracota);
+    animation:scrollLine 2.4s ease-in-out infinite;
+  }
+  @keyframes scrollLine{
+    0%{top:-100%}50%{top:50%}100%{top:100%}
+  }
+
+  /* ===== MARQUEE ===== */
+  .marquee{
+    background:var(--tinta);color:var(--crema);
+    padding:22px 0;overflow:hidden;
+    border-top:1px solid var(--linea);
+    border-bottom:1px solid var(--linea);
+  }
+  .marquee-track{
+    display:flex;gap:60px;
+    animation:scroll 38s linear infinite;
+    white-space:nowrap;
+    font-family:'Fraunces',serif;
+    font-size:34px;font-weight:300;font-style:italic;
+  }
+  .marquee-track span{display:inline-flex;align-items:center;gap:60px}
+  .marquee-track .dot{color:var(--terracota);font-style:normal}
+  @keyframes scroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+  /* ===== SECCIÓN GENERAL ===== */
+  section{padding:120px 0;position:relative}
+  .sec-head{margin-bottom:80px;max-width:680px}
+  .sec-head h2{font-size:clamp(36px,5vw,72px);margin-top:18px}
+  .sec-head p{margin-top:24px;color:var(--tinta-suave);font-size:17px;max-width:540px}
+
+  /* ===== FILOSOFÍA ===== */
+  .filosofia{background:var(--crema-2)}
+  .filo-grid{
+    display:grid;
+    grid-template-columns:1fr 1.2fr;
+    gap:80px;align-items:center;
+  }
+  .filo-img{
+    aspect-ratio:3/4;
+    border-radius:200px 200px 24px 24px;
+    background:linear-gradient(160deg,#c9876a,#a45c3f);
+    overflow:hidden;
+    position:relative;
+    box-shadow:0 30px 60px -25px rgba(164,92,63,.4);
+  }
+  .filo-img::after{
+    content:"";position:absolute;inset:0;
+    background:url('https://images.unsplash.com/photo-1545205597-3d9d02c29597?w=800&q=80') center/cover;
+    mix-blend-mode:multiply;opacity:.9;
+  }
+  .filo-text h2{margin-bottom:28px}
+  .filo-text p{font-size:17px;color:var(--tinta-suave);margin-bottom:20px;line-height:1.75;max-width:520px}
+  .filo-quote{
+    font-family:'Fraunces',serif;font-style:italic;font-weight:300;
+    font-size:28px;line-height:1.3;color:var(--tinta);
+    border-left:2px solid var(--terracota);
+    padding-left:24px;margin-top:36px;
+  }
+  .filo-stats{display:flex;gap:48px;margin-top:48px;flex-wrap:wrap}
+  .filo-stats div{}
+  .filo-stats .n{font-family:'Fraunces',serif;font-size:54px;font-weight:300;line-height:1;color:var(--salvia-oscuro)}
+  .filo-stats .l{font-size:13px;color:var(--tinta-suave);margin-top:6px;letter-spacing:.05em}
+
+  /* ===== SERVICIOS ===== */
+  .servicios{background:var(--crema)}
+  .serv-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:24px;
+  }
+  .serv-card{
+    background:var(--hueso);
+    border-radius:28px;
+    padding:36px 32px;
+    position:relative;
+    overflow:hidden;
+    transition:transform .5s var(--t),box-shadow .5s var(--t);
+    border:1px solid var(--linea);
+    cursor:pointer;
+  }
+  .serv-card:hover{
+    transform:translateY(-6px);
+    box-shadow:0 30px 60px -25px rgba(44,38,32,.2);
+  }
+  .serv-card:nth-child(3n+1){border-top-left-radius:120px}
+  .serv-card:nth-child(3n+2){border-top-right-radius:120px}
+  .serv-card:nth-child(3n+3){border-bottom-right-radius:120px}
+  .serv-icon{
+    width:56px;height:56px;border-radius:50%;
+    background:var(--crema-2);
+    display:flex;align-items:center;justify-content:center;
+    margin-bottom:24px;
+    color:var(--salvia-oscuro);
+  }
+  .serv-card h3{
+    font-family:'Fraunces',serif;font-weight:400;
+    font-size:26px;line-height:1.15;margin-bottom:14px;letter-spacing:-.01em;
+  }
+  .serv-card p{font-size:15px;color:var(--tinta-suave);line-height:1.65;margin-bottom:24px;min-height:60px}
+  .serv-foot{
+    display:flex;justify-content:space-between;align-items:center;
+    padding-top:20px;border-top:1px solid var(--linea);
+  }
+  .serv-precio{font-family:'Fraunces',serif;font-size:22px;font-weight:400}
+  .serv-tiempo{font-size:12px;color:var(--tinta-suave);text-transform:uppercase;letter-spacing:.15em}
+  .serv-link{
+    display:inline-flex;align-items:center;gap:8px;
+    font-size:13px;font-weight:600;color:var(--terracota-oscuro);
+  }
+
+  /* ===== EXPERIENCIA / GALERÍA ===== */
+  .experiencia{background:var(--tinta);color:var(--crema);overflow:hidden}
+  .experiencia .eyebrow{color:var(--terracota)}
+  .experiencia .eyebrow::before{background:var(--terracota)}
+  .exp-grid{
+    display:grid;
+    grid-template-columns:repeat(12,1fr);
+    grid-template-rows:repeat(2,260px);
+    gap:16px;margin-top:60px;
+  }
+  .exp-item{
+    border-radius:24px;overflow:hidden;
+    position:relative;
+    background-size:cover;background-position:center;
+    transition:transform .6s var(--t);
+  }
+  .exp-item:hover{transform:scale(1.02)}
+  .exp-item:nth-child(1){grid-column:1/6;grid-row:1/3;background-image:linear-gradient(rgba(0,0,0,.1),rgba(0,0,0,.3)),url('https://images.unsplash.com/photo-1544161515-4ab6ce6db874?w=900&q=80')}
+  .exp-item:nth-child(2){grid-column:6/9;background-image:linear-gradient(rgba(0,0,0,.1),rgba(0,0,0,.3)),url('https://images.unsplash.com/photo-1591343395082-e120087004b4?w=600&q=80')}
+  .exp-item:nth-child(3){grid-column:9/13;background-image:linear-gradient(rgba(0,0,0,.1),rgba(0,0,0,.3)),url('https://images.unsplash.com/photo-1600334129128-685c5582fd35?w=600&q=80')}
+  .exp-item:nth-child(4){grid-column:6/13;background-image:linear-gradient(rgba(0,0,0,.1),rgba(0,0,0,.3)),url('https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=900&q=80')}
+  .exp-item .lbl{
+    position:absolute;bottom:20px;left:24px;
+    color:#fff;font-size:13px;font-weight:600;
+    text-transform:uppercase;letter-spacing:.15em;
+  }
+
+  /* ===== TESTIMONIOS ===== */
+  .testimonios{background:var(--crema)}
+  .test-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:28px;
+  }
+  .test-card{
+    background:var(--hueso);
+    padding:36px 32px;border-radius:24px;
+    border:1px solid var(--linea);
+    position:relative;
+    transition:all .4s var(--t);
+  }
+  .test-card:hover{transform:translateY(-4px);box-shadow:0 20px 40px -20px rgba(44,38,32,.15)}
+  .test-card .quote-mark{
+    font-family:'Fraunces',serif;font-style:italic;
+    font-size:80px;line-height:.5;color:var(--terracota);
+    position:absolute;top:24px;right:24px;opacity:.4;
+  }
+  .test-card .stars{color:var(--terracota);letter-spacing:2px;margin-bottom:18px;font-size:14px}
+  .test-card p{
+    font-family:'Fraunces',serif;font-style:italic;font-weight:300;
+    font-size:19px;line-height:1.55;margin-bottom:28px;color:var(--tinta);
+  }
+  .test-author{display:flex;align-items:center;gap:14px}
+  .test-avatar{
+    width:48px;height:48px;border-radius:50%;
+    background:linear-gradient(135deg,var(--salvia),var(--salvia-oscuro));
+    display:flex;align-items:center;justify-content:center;
+    color:var(--hueso);font-weight:600;font-size:16px;
+  }
+  .test-author .nm{font-weight:600;font-size:14px}
+  .test-author .ds{font-size:12px;color:var(--tinta-suave)}
+
+  /* ===== RESERVA ===== */
+  .reserva{background:var(--crema-2);position:relative}
+  .res-grid{
+    display:grid;
+    grid-template-columns:.9fr 1.1fr;
+    gap:80px;align-items:start;
+  }
+  .res-info h2{margin-bottom:28px}
+  .res-info p{color:var(--tinta-suave);font-size:17px;line-height:1.7;margin-bottom:36px;max-width:440px}
+  .res-detail{
+    display:flex;gap:18px;align-items:flex-start;
+    margin-bottom:24px;padding-bottom:24px;
+    border-bottom:1px solid var(--linea);
+  }
+  .res-detail:last-child{border:none}
+  .res-detail-icon{
+    width:44px;height:44px;border-radius:50%;
+    background:var(--hueso);
+    display:flex;align-items:center;justify-content:center;
+    color:var(--salvia-oscuro);flex-shrink:0;
+  }
+  .res-detail .ttl{font-weight:600;font-size:14px;margin-bottom:4px}
+  .res-detail .txt{font-size:14px;color:var(--tinta-suave);line-height:1.5}
+
+  .res-form{
+    background:var(--hueso);
+    padding:48px;border-radius:32px;
+    box-shadow:0 30px 60px -30px rgba(44,38,32,.15);
+    border:1px solid var(--linea);
+  }
+  .res-form h3{
+    font-family:'Fraunces',serif;font-weight:400;font-size:30px;
+    margin-bottom:8px;letter-spacing:-.01em;
+  }
+  .res-form .sub{font-size:14px;color:var(--tinta-suave);margin-bottom:32px}
+  .form-row{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:18px}
+  .form-group{margin-bottom:18px}
+  .form-group label{
+    display:block;font-size:11px;text-transform:uppercase;
+    letter-spacing:.18em;font-weight:600;
+    margin-bottom:8px;color:var(--tinta-suave);
+  }
+  .form-group input,.form-group select,.form-group textarea{
+    width:100%;padding:14px 16px;
+    background:var(--crema);
+    border:1px solid var(--linea);
+    border-radius:14px;
+    font-family:inherit;font-size:14px;color:var(--tinta);
+    transition:border .3s var(--t),background .3s var(--t);
+  }
+  .form-group input:focus,.form-group select:focus,.form-group textarea:focus{
+    outline:none;border-color:var(--terracota);background:var(--hueso);
+  }
+  .form-group textarea{resize:vertical;min-height:90px;font-family:inherit}
+  .res-form .btn{width:100%;justify-content:center;margin-top:8px}
+  .form-note{font-size:12px;color:var(--tinta-suave);text-align:center;margin-top:14px;line-height:1.5}
+
+  /* ===== FOOTER ===== */
+  footer{
+    background:var(--tinta);color:var(--crema);
+    padding:80px 0 30px;
+  }
+  .foot-grid{
+    display:grid;
+    grid-template-columns:1.4fr 1fr 1fr 1fr;
+    gap:48px;margin-bottom:60px;
+  }
+  .foot-logo{
+    font-family:'Fraunces',serif;font-style:italic;font-size:36px;
+    font-weight:300;margin-bottom:18px;letter-spacing:-.01em;
+  }
+  .foot-tag{font-size:14px;opacity:.7;line-height:1.6;max-width:300px;margin-bottom:24px}
+  .foot-soc{display:flex;gap:12px}
+  .foot-soc a{
+    width:40px;height:40px;border-radius:50%;
+    border:1px solid rgba(245,239,228,.2);
+    display:flex;align-items:center;justify-content:center;
+    transition:all .3s var(--t);
+  }
+  .foot-soc a:hover{background:var(--terracota);border-color:var(--terracota);transform:translateY(-2px)}
+  .foot-col h4{font-size:13px;text-transform:uppercase;letter-spacing:.18em;font-weight:600;margin-bottom:20px;color:var(--terracota)}
+  .foot-col ul{list-style:none}
+  .foot-col li{margin-bottom:10px}
+  .foot-col a{font-size:14px;opacity:.8;transition:opacity .3s var(--t)}
+  .foot-col a:hover{opacity:1;color:var(--terracota)}
+  .foot-bot{
+    border-top:1px solid rgba(245,239,228,.1);
+    padding-top:30px;display:flex;justify-content:space-between;
+    flex-wrap:wrap;gap:16px;
+    font-size:12px;opacity:.6;
+  }
+
+  /* WhatsApp flotante */
+  .wa-float{
+    position:fixed;bottom:24px;right:24px;z-index:50;
+    width:60px;height:60px;border-radius:50%;
+    background:#25D366;color:#fff;
+    display:flex;align-items:center;justify-content:center;
+    box-shadow:0 10px 30px -10px rgba(37,211,102,.6);
+    transition:transform .3s var(--t);
+  }
+  .wa-float:hover{transform:scale(1.1)}
+  .wa-float::before{
+    content:"";position:absolute;inset:-4px;border-radius:50%;
+    background:#25D366;opacity:.4;
+    animation:pulse 2s ease-in-out infinite;z-index:-1;
+  }
+  @keyframes pulse{0%,100%{transform:scale(1);opacity:.4}50%{transform:scale(1.2);opacity:0}}
+
+  /* ===== REPRODUCTOR DE AUDIO AMBIENTE ===== */
+  .audio-player{
+    position:fixed;bottom:24px;left:24px;z-index:50;
+    background:rgba(44,38,32,.92);
+    backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
+    border-radius:999px;
+    padding:8px 10px 8px 8px;
+    display:flex;align-items:center;gap:10px;
+    box-shadow:0 12px 32px -10px rgba(0,0,0,.4);
+    transition:all .4s var(--t);
+    color:var(--hueso);
+  }
+  .audio-player:hover{transform:translateY(-2px);box-shadow:0 16px 40px -10px rgba(0,0,0,.5)}
+
+  .audio-btn{
+    width:44px;height:44px;border-radius:50%;
+    background:var(--terracota);color:var(--hueso);
+    border:none;cursor:pointer;
+    display:flex;align-items:center;justify-content:center;
+    transition:background .3s var(--t),transform .3s var(--t);
+    flex-shrink:0;
+  }
+  .audio-btn:hover{background:var(--terracota-oscuro);transform:scale(1.05)}
+  .audio-btn .icon-play,.audio-btn .icon-pause{display:none}
+  .audio-player.playing .audio-btn .icon-pause{display:block}
+  .audio-player:not(.playing) .audio-btn .icon-play{display:block}
+
+  /* Onditas animadas cuando suena */
+  .audio-waves{
+    display:flex;align-items:center;gap:3px;height:24px;
+    padding:0 4px;
+  }
+  .audio-waves span{
+    display:block;width:2.5px;
+    background:var(--hueso);
+    border-radius:2px;
+    height:30%;
+    transition:height .3s var(--t);
+  }
+  .audio-player.playing .audio-waves span{
+    animation:audioWave 1.2s ease-in-out infinite;
+  }
+  .audio-player.playing .audio-waves span:nth-child(1){animation-delay:0s}
+  .audio-player.playing .audio-waves span:nth-child(2){animation-delay:.15s}
+  .audio-player.playing .audio-waves span:nth-child(3){animation-delay:.3s}
+  .audio-player.playing .audio-waves span:nth-child(4){animation-delay:.15s}
+  .audio-player.playing .audio-waves span:nth-child(5){animation-delay:0s}
+  @keyframes audioWave{
+    0%,100%{height:30%}
+    50%{height:100%}
+  }
+
+  /* Slider de volumen */
+  .volume-wrap{
+    display:flex;align-items:center;gap:8px;
+    padding-right:8px;
+    overflow:hidden;
+    max-width:0;
+    opacity:0;
+    transition:max-width .4s var(--t),opacity .3s var(--t),padding .4s var(--t);
+  }
+  .audio-player:hover .volume-wrap,
+  .audio-player.expanded .volume-wrap{
+    max-width:120px;opacity:1;padding-right:8px;
+  }
+  .volume-icon{flex-shrink:0;opacity:.7}
+  .volume-slider{
+    -webkit-appearance:none;appearance:none;
+    width:80px;height:3px;
+    background:rgba(245,239,228,.25);
+    border-radius:3px;outline:none;cursor:pointer;
+  }
+  .volume-slider::-webkit-slider-thumb{
+    -webkit-appearance:none;appearance:none;
+    width:14px;height:14px;border-radius:50%;
+    background:var(--terracota);
+    cursor:pointer;
+    transition:transform .2s var(--t);
+  }
+  .volume-slider::-webkit-slider-thumb:hover{transform:scale(1.2)}
+  .volume-slider::-moz-range-thumb{
+    width:14px;height:14px;border-radius:50%;
+    background:var(--terracota);
+    cursor:pointer;border:none;
+  }
+
+  /* Etiqueta hint para que sepa qué es */
+  .audio-hint{
+    position:absolute;
+    top:-36px;left:50%;transform:translateX(-50%);
+    background:var(--hueso);color:var(--tinta);
+    padding:6px 12px;border-radius:8px;
+    font-size:11px;font-weight:600;
+    letter-spacing:.05em;white-space:nowrap;
+    box-shadow:0 6px 20px -8px rgba(0,0,0,.3);
+    opacity:0;pointer-events:none;
+    transition:opacity .3s var(--t),transform .3s var(--t);
+    transform:translateX(-50%) translateY(4px);
+  }
+  .audio-hint::after{
+    content:"";position:absolute;
+    bottom:-4px;left:50%;transform:translateX(-50%) rotate(45deg);
+    width:8px;height:8px;background:var(--hueso);
+  }
+  .audio-player.show-hint .audio-hint{
+    opacity:1;
+    transform:translateX(-50%) translateY(0);
+  }
+
+  /* ===== ANIMACIONES SCROLL ===== */
+  .reveal{opacity:0;transform:translateY(40px);transition:opacity .9s var(--t),transform .9s var(--t)}
+  .reveal.in{opacity:1;transform:translateY(0)}
+  .reveal-stagger > *{opacity:0;transform:translateY(30px);transition:opacity .8s var(--t),transform .8s var(--t)}
+  .reveal-stagger.in > *{opacity:1;transform:translateY(0)}
+  .reveal-stagger.in > *:nth-child(1){transition-delay:.05s}
+  .reveal-stagger.in > *:nth-child(2){transition-delay:.15s}
+  .reveal-stagger.in > *:nth-child(3){transition-delay:.25s}
+  .reveal-stagger.in > *:nth-child(4){transition-delay:.35s}
+  .reveal-stagger.in > *:nth-child(5){transition-delay:.45s}
+  .reveal-stagger.in > *:nth-child(6){transition-delay:.55s}
+
+  /* ===== RESPONSIVE ===== */
+  @media (max-width: 980px){
+    .hero{min-height:90vh;height:90vh}
+    .hero-grid{padding-top:80px}
+    .hero-dots{bottom:24px;right:24px}
+    .hero-badge{bottom:24px;left:24px;padding:12px 16px}
+    .hero-badge .num{font-size:20px}
+    .hero-scroll{display:none}
+    .filo-grid{grid-template-columns:1fr;gap:50px}
+    .serv-grid{grid-template-columns:repeat(2,1fr)}
+    .test-grid{grid-template-columns:1fr;gap:18px}
+    .res-grid{grid-template-columns:1fr;gap:50px}
+    .exp-grid{grid-template-rows:repeat(4,200px)}
+    .exp-item:nth-child(1){grid-column:1/13;grid-row:1/2}
+    .exp-item:nth-child(2){grid-column:1/7;grid-row:2/3}
+    .exp-item:nth-child(3){grid-column:7/13;grid-row:2/3}
+    .exp-item:nth-child(4){grid-column:1/13;grid-row:3/5}
+    .foot-grid{grid-template-columns:1fr 1fr;gap:36px}
+    .nav-links{display:none}
+    .nav-links.open{
+      display:flex;position:absolute;top:100%;left:0;right:0;
+      flex-direction:column;background:var(--hueso);
+      padding:24px 28px;gap:18px;
+      border-top:1px solid var(--linea);
+    }
+    .menu-toggle{display:flex}
+  }
+  @media (max-width: 600px){
+    section{padding:80px 0}
+    .sec-head{margin-bottom:50px}
+    .serv-grid{grid-template-columns:1fr}
+    .form-row{grid-template-columns:1fr}
+    .res-form{padding:32px 24px}
+    .marquee-track{font-size:24px}
+    .foot-grid{grid-template-columns:1fr}
+    .hero-badge{display:none}
+    .hero-dots{bottom:20px;right:50%;transform:translateX(50%)}
+    .filo-stats{gap:32px}
+    .filo-stats .n{font-size:42px}
+    .nav.scrolled .logo{color:var(--tinta)}
+    .logo{color:var(--hueso)}
+    .nav.scrolled .logo{color:var(--tinta)}
+    /* En móvil el reproductor queda solo el botón hasta que lo toquen */
+    .audio-player{bottom:20px;left:20px}
+    .audio-btn{width:40px;height:40px}
+    .audio-waves{display:none}
+    .audio-player.expanded .audio-waves{display:flex}
+    .volume-slider{width:64px}
+    .wa-float{bottom:20px;right:20px;width:52px;height:52px}
+  }
+</style>
+</head>
+<body>
+
+<!-- ===== NAV ===== -->
+<nav class="nav" id="nav">
+  <div class="wrap nav-inner">
+    <a href="#" class="logo">
+      <svg viewBox="0 0 32 32" fill="none"><path d="M16 4c-2 6-6 8-12 10 6 2 10 4 12 14 2-10 6-12 12-14C22 12 18 10 16 4z" fill="#5d7059"/></svg>
+      anamaya
+    </a>
+    <div class="nav-links" id="navLinks">
+      <a href="#filosofia">Filosofía</a>
+      <a href="#servicios">Servicios</a>
+      <a href="#experiencia">Experiencia</a>
+      <a href="#testimonios">Opiniones</a>
+      <a href="#reserva" class="btn-nav">Reservar</a>
+    </div>
+    <button class="menu-toggle" id="menuToggle" aria-label="Menú">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- ===== HERO CON VIDEOS DE FONDO ===== -->
+<header class="hero">
+
+  <!-- 🎬 VIDEOS DEL BANNER —————————————————————————————
+       Para cambiarlos: reemplaza el atributo src de cada <video>
+       por la URL de tu video MP4. Mejor resolución 1920x1080,
+       máximo 10-15 segundos cada uno, peso < 5MB para que cargue rápido.
+       Si quieres MENOS o MÁS videos, simplemente añade/quita bloques <video>
+       y los puntos del slider se ajustan solos.
+  ———————————————————————————————————————————— -->
+  <div class="hero-videos" id="heroVideos">
+    <video autoplay muted loop playsinline preload="metadata"
+           poster="https://images.unsplash.com/photo-1540555700478-4be289fbecef?w=1600&q=80"
+           src="https://videos.pexels.com/video-files/3209828/3209828-uhd_2560_1440_25fps.mp4"></video>
+
+    <video autoplay muted loop playsinline preload="metadata"
+           poster="https://images.unsplash.com/photo-1544161515-4ab6ce6db874?w=1600&q=80"
+           src="https://videos.pexels.com/video-files/4769234/4769234-uhd_2732_1440_25fps.mp4"></video>
+
+    <video autoplay muted loop playsinline preload="metadata"
+           poster="https://images.unsplash.com/photo-1545205597-3d9d02c29597?w=1600&q=80"
+           src="https://videos.pexels.com/video-files/8419167/8419167-uhd_2560_1440_30fps.mp4"></video>
+  </div>
+
+  <div class="hero-overlay"></div>
+
+  <div class="wrap hero-grid">
+    <div class="hero-text reveal">
+      <span class="eyebrow">Santuario de bienestar holístico</span>
+      <h1 class="display" style="margin-top:24px">
+        <span>Reconecta</span>
+        <span>con tu <em>esencia</em></span>
+      </h1>
+      <p class="hero-sub">
+        Terapias diseñadas para devolver el equilibrio natural a tu cuerpo, calmar la mente y reabrir el espacio que el día a día te quita. Un ritual a la vez.
+      </p>
+      <div class="hero-cta">
+        <a href="#reserva" class="btn btn-primary">
+          Reserva tu sesión
+          <svg class="arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+        </a>
+        <a href="#servicios" class="btn btn-ghost">Ver servicios</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Indicadores del slider -->
+  <div class="hero-dots" id="heroDots"></div>
+
+  <!-- Badge de rating -->
+  <div class="hero-badge">
+    <div>
+      <div class="stars">★★★★★</div>
+      <div class="num">4.9</div>
+      <div class="lbl">+500 clientes</div>
+    </div>
+  </div>
+
+  <!-- Scroll hint -->
+  <div class="hero-scroll">
+    <span>Scroll</span>
+    <div class="hero-scroll-line"></div>
+  </div>
+</header>
+
+<!-- ===== MARQUEE ===== -->
+<div class="marquee">
+  <div class="marquee-track">
+    <span>Masaje holístico <span class="dot">✦</span> Aromaterapia <span class="dot">✦</span> Sound Healing <span class="dot">✦</span> Piedras calientes <span class="dot">✦</span> Reflexología <span class="dot">✦</span> Faciales botánicos <span class="dot">✦</span> Rituales de pareja <span class="dot">✦</span> </span>
+    <span>Masaje holístico <span class="dot">✦</span> Aromaterapia <span class="dot">✦</span> Sound Healing <span class="dot">✦</span> Piedras calientes <span class="dot">✦</span> Reflexología <span class="dot">✦</span> Faciales botánicos <span class="dot">✦</span> Rituales de pareja <span class="dot">✦</span> </span>
+  </div>
+</div>
+
+<!-- ===== FILOSOFÍA ===== -->
+<section class="filosofia" id="filosofia">
+  <div class="wrap filo-grid">
+    <div class="filo-img reveal"></div>
+    <div class="filo-text reveal">
+      <span class="eyebrow">Nuestra filosofía</span>
+      <h2 class="display">El bienestar no es un lujo, es <em>tu derecho</em>.</h2>
+      <p>
+        En sánscrito, <strong>Anamaya</strong> significa "libre de sufrimiento". Y eso es exactamente lo que te ofrecemos: un espacio donde el cuerpo recuerda cómo descansar y la mente vuelve a su silencio natural.
+      </p>
+      <p>
+        Cada terapia está construida con técnicas ancestrales y aceites esenciales puros. Sin prisa. Sin protocolos genéricos. Solo tú, tu cuerpo, y el tiempo que necesitas.
+      </p>
+      <div class="filo-quote">
+        "Curar no es algo que se hace, es algo que se permite."
+      </div>
+      <div class="filo-stats">
+        <div><div class="n">+8</div><div class="l">Años de experiencia</div></div>
+        <div><div class="n">12</div><div class="l">Terapias diferentes</div></div>
+        <div><div class="n">100%</div><div class="l">Productos naturales</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== SERVICIOS ===== -->
+<section class="servicios" id="servicios">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">Servicios</span>
+      <h2 class="display">Rituales pensados para <em>tu equilibrio</em></h2>
+      <p>Cada sesión es personalizada según lo que tu cuerpo necesita ese día. Reserva la que más te llame y nosotros nos encargamos del resto.</p>
+    </div>
+
+    <div class="serv-grid reveal-stagger">
+
+      <div class="serv-card">
+        <div class="serv-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2v20M5 8c0 4 3 7 7 7s7-3 7-7M5 8c2 0 4 1 5 3M19 8c-2 0-4 1-5 3"/></svg>
+        </div>
+        <h3>Masaje Holístico</h3>
+        <p>Técnica integradora que combina presión profunda, aceites botánicos y respiración guiada para liberar tensión acumulada.</p>
+        <div class="serv-foot">
+          <div>
+            <div class="serv-precio">$120.000</div>
+            <div class="serv-tiempo">60 min</div>
+          </div>
+          <a href="#reserva" class="serv-link">Reservar →</a>
+        </div>
+      </div>
+
+      <div class="serv-card">
+        <div class="serv-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="3"/><path d="M12 2v4M12 18v4M2 12h4M18 12h4M5 5l3 3M16 16l3 3M5 19l3-3M16 8l3-3"/></svg>
+        </div>
+        <h3>Ritual de Piedras Calientes</h3>
+        <p>Piedras volcánicas tibias que penetran capas profundas del músculo. Ideal para desestresar la espalda y liberar nudos.</p>
+        <div class="serv-foot">
+          <div>
+            <div class="serv-precio">$150.000</div>
+            <div class="serv-tiempo">75 min</div>
+          </div>
+          <a href="#reserva" class="serv-link">Reservar →</a>
+        </div>
+      </div>
+
+      <div class="serv-card">
+        <div class="serv-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg>
+        </div>
+        <h3>Sound Healing</h3>
+        <p>Vibraciones de cuencos tibetanos y de cuarzo que reorganizan tu sistema nervioso. Sales sintiendo que descansaste 8 horas.</p>
+        <div class="serv-foot">
+          <div>
+            <div class="serv-precio">$110.000</div>
+            <div class="serv-tiempo">50 min</div>
+          </div>
+          <a href="#reserva" class="serv-link">Reservar →</a>
+        </div>
+      </div>
+
+      <div class="serv-card">
+        <div class="serv-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2c-3 4-3 8 0 12 3-4 3-8 0-12zM6 14c2 1 3 3 3 6M18 14c-2 1-3 3-3 6"/></svg>
+        </div>
+        <h3>Aromaterapia Botánica</h3>
+        <p>Mezcla personalizada de aceites esenciales puros aplicada en puntos energéticos. Para estrés crónico, insomnio y ansiedad.</p>
+        <div class="serv-foot">
+          <div>
+            <div class="serv-precio">$95.000</div>
+            <div class="serv-tiempo">45 min</div>
+          </div>
+          <a href="#reserva" class="serv-link">Reservar →</a>
+        </div>
+      </div>
+
+      <div class="serv-card">
+        <div class="serv-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 12c4-2 8-2 12 0s5 4 6 8M3 12c2-1 4-1 6 0M9 12c1-1 2-1 3 0"/></svg>
+        </div>
+        <h3>Reflexología</h3>
+        <p>Tu cuerpo entero refleja en tus pies. Liberamos órganos, glándulas y emociones a través de puntos específicos.</p>
+        <div class="serv-foot">
+          <div>
+            <div class="serv-precio">$85.000</div>
+            <div class="serv-tiempo">45 min</div>
+          </div>
+          <a href="#reserva" class="serv-link">Reservar →</a>
+        </div>
+      </div>
+
+      <div class="serv-card">
+        <div class="serv-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M16 8a4 4 0 0 1-8 0M9 14c-2 1-3 3-3 6M15 14c2 1 3 3 3 6M12 14v8"/><circle cx="12" cy="6" r="3"/></svg>
+        </div>
+        <h3>Ritual de Pareja</h3>
+        <p>Dos camillas, una sola experiencia. Masaje sincronizado con aceites de cacao y vainilla. Perfecto para reconectar.</p>
+        <div class="serv-foot">
+          <div>
+            <div class="serv-precio">$280.000</div>
+            <div class="serv-tiempo">90 min</div>
+          </div>
+          <a href="#reserva" class="serv-link">Reservar →</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ===== EXPERIENCIA ===== -->
+<section class="experiencia" id="experiencia">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">La experiencia</span>
+      <h2 class="display">Un espacio diseñado para <em>desaparecer</em></h2>
+      <p style="color:rgba(245,239,228,.7)">Aromas tibios, luz baja, música que respira contigo. Cada detalle existe para que tu sistema nervioso baje la guardia.</p>
+    </div>
+    <div class="exp-grid reveal-stagger">
+      <div class="exp-item"><span class="lbl">Sala principal</span></div>
+      <div class="exp-item"><span class="lbl">Aceites</span></div>
+      <div class="exp-item"><span class="lbl">Cuencos</span></div>
+      <div class="exp-item"><span class="lbl">Naturaleza viva</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== TESTIMONIOS ===== -->
+<section class="testimonios" id="testimonios">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">Lo que dicen</span>
+      <h2 class="display">Experiencias <em>reales</em></h2>
+    </div>
+    <div class="test-grid reveal-stagger">
+
+      <div class="test-card">
+        <div class="quote-mark">"</div>
+        <div class="stars">★★★★★</div>
+        <p>Llegué con la espalda hecha un nudo y la cabeza peor. Salí flotando. No exagero — me dormí dos horas en cuanto llegué a casa.</p>
+        <div class="test-author">
+          <div class="test-avatar">M</div>
+          <div>
+            <div class="nm">Mariana López</div>
+            <div class="ds">Cliente desde 2023</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="test-card">
+        <div class="quote-mark">"</div>
+        <div class="stars">★★★★★</div>
+        <p>El sound healing fue otra cosa. Pensé que iba a ser raro y terminé llorando de la calma que me dio. Ya voy una vez al mes.</p>
+        <div class="test-author">
+          <div class="test-avatar">D</div>
+          <div>
+            <div class="nm">Daniel Quintero</div>
+            <div class="ds">Cliente desde 2024</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="test-card">
+        <div class="quote-mark">"</div>
+        <div class="stars">★★★★★</div>
+        <p>El ritual de pareja fue el mejor regalo de aniversario. Mi esposa todavía habla de eso. El espacio es hermoso, todo huele rico.</p>
+        <div class="test-author">
+          <div class="test-avatar">C</div>
+          <div>
+            <div class="nm">Carlos Mendoza</div>
+            <div class="ds">Cliente desde 2024</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ===== RESERVA ===== -->
+<section class="reserva" id="reserva">
+  <div class="wrap res-grid">
+    <div class="res-info reveal">
+      <span class="eyebrow">Agenda tu sesión</span>
+      <h2 class="display">Tu momento <em>te espera</em></h2>
+      <p>Llena el formulario y nosotros te confirmamos la disponibilidad por WhatsApp en menos de 1 hora. Sin compromiso, sin formularios eternos.</p>
+
+      <div class="res-detail">
+        <div class="res-detail-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        </div>
+        <div>
+          <div class="ttl">Ubicación</div>
+          <div class="txt">Anapoima, Cundinamarca<br>Parqueadero gratuito disponible</div>
+        </div>
+      </div>
+
+      <div class="res-detail">
+        <div class="res-detail-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+        </div>
+        <div>
+          <div class="ttl">Horario</div>
+          <div class="txt">Lun – Sáb: 9:00 a.m. – 8:00 p.m.<br>Domingo: 10:00 a.m. – 5:00 p.m.</div>
+        </div>
+      </div>
+
+      <div class="res-detail">
+        <div class="res-detail-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.37 1.9.72 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.35 1.85.59 2.81.72A2 2 0 0 1 22 16.92z"/></svg>
+        </div>
+        <div>
+          <div class="ttl">WhatsApp directo</div>
+          <div class="txt">+57 315 551 4708<br>Respuesta en menos de 30 min</div>
+        </div>
+      </div>
+    </div>
+
+    <form class="res-form reveal" id="reservaForm">
+      <h3>Reserva tu sesión</h3>
+      <p class="sub">Te respondemos en menos de 1 hora</p>
+
+      <div class="form-group">
+        <label for="nombre">Tu nombre</label>
+        <input type="text" id="nombre" name="nombre" required placeholder="¿Cómo te llamas?">
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label for="whatsapp">WhatsApp</label>
+          <input type="tel" id="whatsapp" name="whatsapp" required placeholder="+57 300 000 0000">
+        </div>
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" placeholder="tu@email.com">
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="servicio">Servicio que te interesa</label>
+        <select id="servicio" name="servicio" required>
+          <option value="">Selecciona uno</option>
+          <option>Masaje Holístico — $120.000</option>
+          <option>Ritual de Piedras Calientes — $150.000</option>
+          <option>Sound Healing — $110.000</option>
+          <option>Aromaterapia Botánica — $95.000</option>
+          <option>Reflexología — $85.000</option>
+          <option>Ritual de Pareja — $280.000</option>
+          <option>No sé, ayúdame a elegir</option>
+        </select>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label for="fecha">Fecha preferida</label>
+          <input type="date" id="fecha" name="fecha" required>
+        </div>
+        <div class="form-group">
+          <label for="hora">Hora preferida</label>
+          <select id="hora" name="hora" required>
+            <option value="">Selecciona</option>
+            <option>9:00 a.m.</option>
+            <option>10:00 a.m.</option>
+            <option>11:00 a.m.</option>
+            <option>2:00 p.m.</option>
+            <option>3:00 p.m.</option>
+            <option>4:00 p.m.</option>
+            <option>5:00 p.m.</option>
+            <option>6:00 p.m.</option>
+            <option>7:00 p.m.</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="notas">Algo que quieras contarnos (opcional)</label>
+        <textarea id="notas" name="notas" placeholder="Lesiones, alergias, preferencias…"></textarea>
+      </div>
+
+      <button type="submit" class="btn btn-primary">
+        Confirmar reserva por WhatsApp
+        <svg class="arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+      </button>
+      <p class="form-note">Al enviar abriremos WhatsApp con tu solicitud lista. Tú solo le das "enviar".</p>
+    </form>
+
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <div class="foot-logo">anamaya</div>
+        <p class="foot-tag">Santuario de bienestar holístico. Terapias ancestrales con productos 100% naturales para devolverte tu calma.</p>
+        <div class="foot-soc">
+          <a href="https://www.instagram.com/anamayawellness/" target="_blank" rel="noopener" aria-label="Instagram">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg>
+          </a>
+          <a href="#" aria-label="Facebook">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+          </a>
+          <a href="#" aria-label="WhatsApp">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.37 1.9.72 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.35 1.85.59 2.81.72A2 2 0 0 1 22 16.92z"/></svg>
+          </a>
+        </div>
+      </div>
+      <div class="foot-col">
+        <h4>Explora</h4>
+        <ul>
+          <li><a href="#filosofia">Filosofía</a></li>
+          <li><a href="#servicios">Servicios</a></li>
+          <li><a href="#experiencia">Experiencia</a></li>
+          <li><a href="#testimonios">Opiniones</a></li>
+        </ul>
+      </div>
+      <div class="foot-col">
+        <h4>Contacto</h4>
+        <ul>
+          <li><a href="https://wa.me/573155514708">+57 315 551 4708</a></li>
+          <li><a href="mailto:anamayawellness1@gmail.com">anamayawellness1@gmail.com</a></li>
+          <li><a href="#">Anapoima, Cundinamarca</a></li>
+        </ul>
+      </div>
+      <div class="foot-col">
+        <h4>Horario</h4>
+        <ul>
+          <li>Lun – Sáb<br>9:00 a.m. – 8:00 p.m.</li>
+          <li style="margin-top:8px">Domingo<br>10:00 a.m. – 5:00 p.m.</li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-bot">
+      <div>© 2026 Anamaya Wellness. Todos los derechos reservados.</div>
+      <div>Hecho con calma en Colombia ✦</div>
+    </div>
+  </div>
+</footer>
+
+<!-- Reproductor de audio ambiente -->
+<div class="audio-player" id="audioPlayer">
+  <div class="audio-hint">Música ambiente · toca para escuchar</div>
+  <button class="audio-btn" id="audioBtn" aria-label="Reproducir música ambiente">
+    <svg class="icon-play" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+    <svg class="icon-pause" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M6 4h4v16H6zM14 4h4v16h-4z"/></svg>
+  </button>
+  <div class="audio-waves" aria-hidden="true">
+    <span></span><span></span><span></span><span></span><span></span>
+  </div>
+  <div class="volume-wrap">
+    <svg class="volume-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/></svg>
+    <input type="range" min="0" max="100" value="40" class="volume-slider" id="volumeSlider" aria-label="Volumen">
+  </div>
+  <audio id="ambientAudio" loop preload="metadata">
+    <source src="ambiente.m4a" type="audio/mp4">
+    Tu navegador no soporta audio HTML5.
+  </audio>
+</div>
+
+<!-- WhatsApp flotante -->
+<a href="https://wa.me/573155514708?text=Hola%20Anamaya,%20quiero%20información" class="wa-float" target="_blank" rel="noopener" aria-label="WhatsApp">
+  <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor"><path d="M17.6 6.3A8 8 0 0 0 4.5 16l-1.1 4 4-1.1a8 8 0 0 0 11.5-3.4 8 8 0 0 0-1.3-9.2zm-5.5 12.3a6.7 6.7 0 0 1-3.4-.9l-.2-.1-2.4.6.6-2.3-.2-.3a6.7 6.7 0 1 1 5.6 3zm3.6-5c-.2-.1-1.2-.6-1.4-.6-.2-.1-.3-.1-.4.1-.1.2-.5.6-.6.7-.1.1-.2.1-.4 0a5.4 5.4 0 0 1-2.7-2.4c-.2-.4.2-.3.6-1.1.1-.1 0-.2 0-.3 0-.1-.4-1-.6-1.4-.2-.4-.3-.3-.4-.3h-.4c-.1 0-.3 0-.5.2a1.7 1.7 0 0 0-.5 1.2 3 3 0 0 0 .6 1.6 6.6 6.6 0 0 0 2.7 2.4c1.7.7 1.7.5 2 .5.3 0 1-.4 1.1-.8.1-.4.1-.7.1-.8 0-.1-.1-.1-.3-.2z"/></svg>
+</a>
+
+
+<script>
+  // ============================================================
+  // 🎯 EVENTOS AVANZADOS DE META PIXEL
+  // ============================================================
+  // Rastrea comportamientos clave para optimizar campañas y crear
+  // audiencias personalizadas. Solo se ejecuta si el Pixel está cargado.
+  // ============================================================
+  (function(){
+    if(typeof fbq !== 'function') return;
+
+    // ViewContent: cuando el usuario llega a la sección de servicios
+    let viewedServicios = false;
+    const serviciosSection = document.getElementById('servicios');
+    if(serviciosSection){
+      const obsServ = new IntersectionObserver((entries) => {
+        entries.forEach(e => {
+          if(e.isIntersecting && !viewedServicios){
+            viewedServicios = true;
+            fbq('track', 'ViewContent', { content_name: 'Servicios Anamaya', content_category: 'spa' });
+            obsServ.disconnect();
+          }
+        });
+      }, { threshold: 0.5 });
+      obsServ.observe(serviciosSection);
+    }
+
+    // Contact: cualquier click a WhatsApp flotante
+    const waFloat = document.querySelector('.wa-float');
+    if(waFloat){
+      waFloat.addEventListener('click', () => {
+        fbq('track', 'Contact', { content_name: 'WhatsApp flotante' });
+      });
+    }
+
+    // InitiateCheckout: cuando hace click en "Reservar" o "Hacer test"
+    document.querySelectorAll('a[href="#reserva"], a[href="test.html"]').forEach(el => {
+      el.addEventListener('click', () => {
+        fbq('track', 'InitiateCheckout', { content_name: 'Inicio reserva' });
+      });
+    });
+  })();
+</script>
+
+<script>
+  // ===== SLIDER DE VIDEOS DEL HERO =====
+  (function(){
+    const container = document.getElementById('heroVideos');
+    const dotsBox = document.getElementById('heroDots');
+    if(!container || !dotsBox) return;
+    const videos = container.querySelectorAll('video');
+    if(videos.length === 0) return;
+
+    // Crear dots
+    videos.forEach((_, i) => {
+      const b = document.createElement('button');
+      b.setAttribute('aria-label', 'Video ' + (i+1));
+      b.addEventListener('click', () => show(i));
+      dotsBox.appendChild(b);
+    });
+    const dots = dotsBox.querySelectorAll('button');
+
+    let current = 0;
+    let timer;
+    const INTERVAL = 7000; // tiempo en ms que dura cada video antes de pasar al siguiente
+
+    function show(i){
+      videos[current].classList.remove('active');
+      dots[current].classList.remove('active');
+      current = i;
+      videos[current].classList.add('active');
+      dots[current].classList.add('active');
+      // reiniciar el video al mostrarlo
+      try{ videos[current].currentTime = 0; videos[current].play(); }catch(e){}
+      restart();
+    }
+    function next(){ show((current + 1) % videos.length); }
+    function restart(){ clearInterval(timer); timer = setInterval(next, INTERVAL); }
+
+    // Forzar autoplay (algunos navegadores son testarudos)
+    videos.forEach(v => {
+      v.muted = true;
+      v.play().catch(() => {});
+    });
+
+    show(0);
+  })();
+
+  // Nav scroll effect
+  const nav = document.getElementById('nav');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 30);
+  });
+
+  // Mobile menu
+  const toggle = document.getElementById('menuToggle');
+  const links = document.getElementById('navLinks');
+  toggle.addEventListener('click', () => links.classList.toggle('open'));
+  links.querySelectorAll('a').forEach(a => a.addEventListener('click', () => links.classList.remove('open')));
+
+  // Reveal on scroll
+  const obs = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('in');
+        obs.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -60px 0px' });
+  document.querySelectorAll('.reveal, .reveal-stagger').forEach(el => obs.observe(el));
+
+  // Fecha mínima = hoy
+  const fecha = document.getElementById('fecha');
+  if (fecha) {
+    const hoy = new Date().toISOString().split('T')[0];
+    fecha.min = hoy;
+  }
+
+  // Form a WhatsApp
+  // 👉 CAMBIA ESTE NÚMERO POR EL DE ANAMAYA WELLNESS (formato internacional sin + ni espacios)
+  const WHATSAPP_NUMBER = '573155514708';
+
+  document.getElementById('reservaForm').addEventListener('submit', (e) => {
+    e.preventDefault();
+    const f = e.target;
+
+    // Generar referencia única para auditar el lead (formato: ANM-DDMM-XXXX)
+    const now = new Date();
+    const dd = String(now.getDate()).padStart(2,'0');
+    const mm = String(now.getMonth()+1).padStart(2,'0');
+    const rand = String(Math.floor(Math.random()*9000)+1000);
+    const refCode = `ANM-${dd}${mm}-${rand}`;
+
+    const msg =
+`Hola Anamaya Wellness ✨ quiero reservar una sesión:
+
+• Nombre: ${f.nombre.value}
+• WhatsApp: ${f.whatsapp.value}
+• Email: ${f.email.value || '—'}
+• Servicio: ${f.servicio.value}
+• Fecha: ${f.fecha.value}
+• Hora: ${f.hora.value}
+• Notas: ${f.notas.value || '—'}
+
+¿Me confirman disponibilidad?
+
+Ref: ${refCode}`;
+
+    // Disparar evento de Meta Pixel si está cargado
+    if (typeof fbq === 'function') {
+      fbq('track', 'Lead', { content_name: f.servicio.value });
+    }
+
+    const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(msg)}`;
+    window.open(url, '_blank');
+  });
+
+  // ============================================================
+  // 🎵 REPRODUCTOR DE AUDIO AMBIENTE
+  // ============================================================
+  // Por políticas de los navegadores, el audio NO arranca solo —
+  // el usuario debe hacer click en play. Mostramos un hint discreto
+  // a los 3 segundos para invitar a activarlo.
+  // ============================================================
+  (function(){
+    const player = document.getElementById('audioPlayer');
+    const audio = document.getElementById('ambientAudio');
+    const btn = document.getElementById('audioBtn');
+    const slider = document.getElementById('volumeSlider');
+    if(!player || !audio || !btn || !slider) return;
+
+    // Recuperar volumen guardado o usar 40% por defecto
+    const savedVol = parseInt(localStorage.getItem('anamaya_volume') || '40', 10);
+    slider.value = savedVol;
+    audio.volume = savedVol / 100;
+
+    // Play / Pause
+    btn.addEventListener('click', () => {
+      if(audio.paused){
+        audio.play().then(() => {
+          player.classList.add('playing');
+          player.classList.remove('show-hint');
+          // Aviso a Meta Pixel que se activó el audio (engagement profundo)
+          if(typeof fbq === 'function') fbq('trackCustom', 'AudioPlay', { content_name: 'ambiente' });
+        }).catch(err => {
+          console.warn('No se pudo reproducir audio:', err);
+        });
+      } else {
+        audio.pause();
+        player.classList.remove('playing');
+      }
+    });
+
+    // Control de volumen
+    slider.addEventListener('input', () => {
+      const vol = slider.value / 100;
+      audio.volume = vol;
+      localStorage.setItem('anamaya_volume', slider.value);
+      // Si el volumen baja a 0 mientras suena, se considera "pausa silenciosa"
+      // pero seguimos mostrando como playing — el usuario sigue escuchando "nada"
+    });
+
+    // En móvil, expandir el reproductor al tocarlo (no hay hover)
+    btn.addEventListener('touchstart', () => {
+      player.classList.toggle('expanded');
+    }, { passive: true });
+
+    // Cuando el audio termina (no debería pasar por el loop, pero por si acaso)
+    audio.addEventListener('ended', () => {
+      player.classList.remove('playing');
+    });
+
+    // Hint sutil a los 3 segundos para que el usuario sepa que está
+    setTimeout(() => {
+      if(audio.paused){
+        player.classList.add('show-hint');
+        setTimeout(() => player.classList.remove('show-hint'), 4000);
+      }
+    }, 3000);
+  })();
+</script>
+
+</body>
+</html>
